@@ -9,11 +9,15 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
+    var board : FifteenBoard?
 
-
-
+    let numShuffles = 150
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.board = FifteenBoard()
+        self.board!.scramble(numTimes: numShuffles)
         return true
     }
 
