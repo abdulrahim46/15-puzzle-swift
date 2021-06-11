@@ -10,14 +10,6 @@ import UIKit
 
 class BoardView: UIView {
     
-    /*
-      Only override draw() if you perform custom drawing.
-      An empty implementation adversely affects performance during animation.
-     override func draw(_ rect: CGRect) {
-      Drawing code
-     }
-     */
-    
     /// We want to programmatically control the size and positions of the tile buttons so we override the values computed by the AutoLayout engine. This is accomplished by overriding UIView’s layoutSubviews method. Once the AutoLayout is finished, we immediately reset by assigning to desired values of the bounds and center properties of each button.
     
     /// Auxiliary method that determines the largest square that fits in the center of the board view. We make sure the board size of is a multiple of 8 so the tile centers lie on the integer grid

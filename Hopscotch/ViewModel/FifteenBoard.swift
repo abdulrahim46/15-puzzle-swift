@@ -13,7 +13,7 @@ class FifteenBoard {
         [1, 2, 3, 4],
         [5, 6, 7 ,8],
         [9, 10, 11, 12],
-        [13, 14, 15, 0]  // 0 => empty
+        [13, 14, 15, 0]  /// 0 => empty
     ]
 
     let rows = 4
@@ -21,14 +21,14 @@ class FifteenBoard {
     
     func random(_ n:Int) -> Int {
         return Int(arc4random_uniform(UInt32(n)))
-    } // end random()
+    } /// end random()
     
     func swapTile(fromRow r1: Int, Column c1: Int, toRow r2: Int, Column c2: Int) {
         state[r2][c2] = state[r1][c1]
         state[r1][c1] = 0
-    } // end swapTile()
+    } /// end swapTile()
 
-    // Choose one of the “slidable” tiles at random and slide it into the empty space; repeat n times. We use this method to start a new game using a large value (e.g., 150) for n.
+    /// Choose one of the “slidable” tiles at random and slide it into the empty space; repeat n times. We use this method to start a new game using a large value (e.g., 150) for n.
     func scramble(numTimes n: Int) {
         resetBoard()
         for _ in 1...n {
@@ -39,22 +39,22 @@ class FifteenBoard {
                     if canSlideTile(atRow: r, Column: c) {
                         movingTiles.append((r, c))
                         numMovingTiles = numMovingTiles + 1
-                    } // end if canSlideTile()
-                } // end for c
-            } // end for r
+                    } /// end if canSlideTile()
+                } /// end for c
+            } /// end for r
             let randomTile = random(numMovingTiles)
             var moveRow : Int, moveCol : Int
             (moveRow , moveCol) = movingTiles[randomTile]
             slideTile(atRow: moveRow, Column: moveCol)
-        } // end for i
-    } // end scamble()
+        } /// end for i
+    } /// end scamble()
     
-    // Fetch the tile at the given position (0 is used for the space).
+    /// Fetch the tile at the given position (0 is used for the space).
     func getTile(atRow r: Int, atColumn c: Int) -> Int {
         return state[r][c]
-    } // end getTile()
+    } /// end getTile()
     
-    // Find the position of the given tile (0 is used for the space) – returns tuple holding row and column.
+    /// Find the position of the given tile (0 is used for the space) – returns tuple holding row and column.
     func getRowAndColumn(forTile tile: Int) -> (row: Int, column: Int)? {
         if (tile > (rows*cols-1)) {
             return nil
@@ -67,25 +67,25 @@ class FifteenBoard {
             }
         }
         return nil
-    } // end getRowAndColumn()
+    } /// end getRowAndColumn()
     
-    // Determine if puzzle is in solved configuration.
+    /// Determine if puzzle is in solved configuration.
     func canSlideTileUp(atRow r : Int, Column c : Int) -> Bool {
             return (r < 1) ? false : ( state[r-1][c] == 0 )
-    } // end canSlideTileUp
+    } /// end canSlideTileUp
     
-    // Determine if the specified tile can be slid up into the empty space.
+    /// Determine if the specified tile can be slid up into the empty space.
     func canSlideTileDown(atRow r :  Int, Column c :  Int) -> Bool {
         return (r > (rows-2)) ? false : ( state[r+1][c] == 0 )
-    } // end canSlideTileDown
+    } /// end canSlideTileDown
     
     func canSlideTileLeft(atRow r :  Int, Column c :  Int) -> Bool {
             return (c < 1) ? false : ( state[r][c-1] == 0 )
-    } // end canSlideTileLeft
+    } /// end canSlideTileLeft
     
     func canSlideTileRight(atRow r :  Int, Column c :  Int) -> Bool {
             return (c > (cols-2)) ? false : ( state[r][c+1] == 0 )
-    } // end canSlideTileRight
+    } /// end canSlideTileRight
     
     func canSlideTile(atRow r :  Int, Column c :  Int) -> Bool {
         return  (canSlideTileRight(atRow: r, Column: c) ||
@@ -94,11 +94,11 @@ class FifteenBoard {
             canSlideTileUp(atRow: r, Column: c))
     } // canSlideTile()
 
-    // Slide the tile into the empty space, if possible.
-    // tile is at [r,c]
-    // 0 is at [r-1,c], [r+1,c], [r,c-1], [r, c+1]
+    /// Slide the tile into the empty space, if possible.
+    /// tile is at [r,c]
+    /// 0 is at [r-1,c], [r+1,c], [r,c-1], [r, c+1]
     func slideTile(atRow r: Int, Column c: Int) {
-        // basecase
+        /// basecase
         if (r > rows || c > cols || r < 0 || c < 0) {
             return
         }
@@ -115,8 +115,8 @@ class FifteenBoard {
             if (canSlideTileRight(atRow: r, Column: c)) {
                 swapTile(fromRow: r, Column: c, toRow: r, Column: c+1)
             }
-        } // end if canSlideTile
-    } // end slideTile()
+        } /// end if canSlideTile
+    } /// end slideTile()
     
     func isSolved() -> Bool {
         var comparison = 1
@@ -129,9 +129,9 @@ class FifteenBoard {
             }
         }
         return true
-    } // end isSolved()
+    } /// end isSolved()
     
-    // reset board to default
+    /// reset board to default
     func resetBoard() {
         var set = 1
         for r in 0..<rows {
@@ -140,5 +140,5 @@ class FifteenBoard {
                 set = set + 1
             }
         }
-    } // end resetBoard()
-} // end FifteenBoard()
+    } /// end resetBoard()
+} /// end FifteenBoard()

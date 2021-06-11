@@ -50,8 +50,8 @@ class ViewController: UIViewController {
                     self.view.window!.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 2.0)
                 }, completion: nil)
             }
-        } /// end if slide
-    } // end tileSelected
+        } //// end if slide
+    } /// end tileSelected
     
     @IBAction func shuffleTiles(_ sender: UIBarButtonItem) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

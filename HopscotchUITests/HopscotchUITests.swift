@@ -30,6 +30,34 @@ class HopscotchUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    func testTileTap() {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        app.buttons["Images"].tap()
+        app.buttons["Numbers"].tap()
+        app.buttons["Shuffle"].tap()
+        app.buttons["Solve"].tap()
+        
+        app.buttons["1"].tap()
+        app.buttons["15"].tap()
+        app.buttons["15"].tap()
+        
+    }
+    
+    func testSwitchTileImages() {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.buttons["Images"].tap()
+        XCTAssertEqual(app.buttons["1"].exists, true)
+        
+        app.buttons["Numbers"].tap()
+        XCTAssertEqual(app.buttons["1"].exists, true)
+        
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
