@@ -1,4 +1,4 @@
-# Hopscotch codetest create a 15 puzzle UI using Swift
+# 15 puzzle UI using Swift
 
 The user shouldbe able to move blocks into the blank space to tryand solve the puzzle. You can use the language of your choice to implement the solution.It should behave like a physical puzzle in that you can push an entire row over into the blankspace. (i.e. in the example below, you could pushall of row 1 over from the 15 square).You do not need to ensure that the puzzle is solvable or provide a solver for it.
 
