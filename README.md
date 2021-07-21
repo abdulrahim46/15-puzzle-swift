@@ -8,7 +8,7 @@ The user shouldbe able to move blocks into the blank space to tryand solve the p
 
 ![Platform](https://img.shields.io/badge/Platform-iOS-orange.svg)
 ![Languages](https://img.shields.io/badge/Language-Swift-orange.svg)
-![](https://img.shields.io/badge/Alamofire-Networking-red)
+![https://img.shields.io/badge/Alamofire-Networking-red](https://github.com/Alamofire/Alamofire)
 
 ## Installation
 - open Hopscotch.xcworkproj. 
